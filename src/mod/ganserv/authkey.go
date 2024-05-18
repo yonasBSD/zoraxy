@@ -39,7 +39,7 @@ func TryLoadorAskUserForAuthkey() (string, error) {
 			}
 		}
 
-	} else if runtime.GOOS == "linux" {
+	} else if runtime.GOOS == "linux" || runtime.GOOS == "freebsd" {
 		if isAdmin() {
 			//Try to read from source using sudo
 			ak, err := readAuthTokenAsAdmin()
