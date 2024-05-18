@@ -303,7 +303,7 @@ func GetNetworkInterfaceStats() (int64, int64, error) {
 		//Return value as bits
 		return rxSum * 8, txSum * 8, nil
 
-	} else if runtime.GOOS == "darwin" {
+	} else if runtime.GOOS == "darwin" || runtime.GOOS == "freebsd" {
 		cmd := exec.Command("netstat", "-ib") //get data from netstat -ib
 		out, err := cmd.Output()
 		if err != nil {
